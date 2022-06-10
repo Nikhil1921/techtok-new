@@ -193,4 +193,17 @@ class Home extends Public_controller  {
 
         echoRespnse(200, $response);
     }
+
+    public function get_token()
+    {
+        get();
+
+        $api = authenticate($this->table);
+
+        $response['row']['token'] = AgoraHelper::GetToken($api);
+        $response['error'] = false;
+        $response['message'] = "Agora token success.";
+
+        echoRespnse(200, $response);
+    }
 }
